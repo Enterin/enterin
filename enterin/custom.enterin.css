@@ -1,0 +1,22 @@
+// now you can write your css here!
+
+@import url(http://fonts.googleapis.com/css?family=Arvo);
+
+h1 {
+	font-size:22px;
+}
+body {
+	font-family: 'Arvo', 'Verdana';
+	font-size:13px;
+}
+
+article.enterin-slide.slide1{
+	background:url('http://www.magliarossonera.it/stagincorso/1011/raduno/leggo1.jpg') center center no-repeat transparent;
+	background-size:100% 100%;
+	color:white!important;
+}
+article.enterin-slide.slide2{
+	background:url('http://www.cinemaimmagina.it/stampa/rassegna_ferlito/Corriere_della_Sera_25_apri.jpg') center center no-repeat transparent;
+	background-size:100% 100%;
+	color:white!important;
+}

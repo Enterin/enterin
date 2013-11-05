@@ -1,0 +1,108 @@
+/*
+* EnterIN
+* 
+* Copyright 2013 Gianfilippo Balestriero < enterin.github@gmail.com >
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*       http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+* 
+*/
+
+section[data-enterin-type="blog"] {
+	position: fixed;
+	width: 100%;
+	height: 90%;
+	min-height: 90%;		
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	margin: auto auto;
+
+	.enterin-blog-wrapper-css;
+
+}
+
+section[data-enterin-type="blog"] .enterin-slide, div[data-enterin-type="blog"] .enterin-slide{
+	
+	width: 708px;
+
+	right: 0px;
+	left: 0px;
+	
+	overflow-y: auto;
+
+	margin:auto auto;
+
+	background: white;
+
+	.enterin-blog-slide-css
+
+}
+
+section[data-enterin-type="blog"] .enterin-slide .title, div[data-enterin-type="blog"] .enterin-slide .title{
+
+	font-size:22px;
+
+	.enterin-blog-slide-title-css
+
+}
+
+section[data-enterin-type="blog"] .enterin-slide:nth-child(odd), div[data-enterin-type="blog"] .enterin-slide:nth-child(odd) {
+	
+	left: -24%;
+
+	.enterin-blog-slide-odd-css
+
+}
+
+section[data-enterin-type="blog"] .enterin-slide:nth-child(even), div[data-enterin-type="blog"] .enterin-slide:nth-child(even) {
+	left: -24%;
+	.enterin-blog-slide-even-css
+
+}
+
+section[data-enterin-type="blog"] .enterin-slide.enterin-active, 
+div[data-enterin-type="blog"] .enterin-slide.enterin-active 
+section[data-enterin-type="blog"] .enterin-slide .mouseenter, 
+div[data-enterin-type="blog"] .enterin-slide .mouseenter {
+	
+	right: 0px;
+	left: 0px;
+	
+	margin:auto auto;
+
+	.enterin-blog-slide-active-css
+
+}
+
+section[data-enterin-type="blog"] .enterin-slide .container, div[data-enterin-type="blog"] .enterin-slide .container {
+	padding:20px;
+	.enterin-blog-slide-container-css
+}
+
+section[data-enterin-type="blog"] .enterin-slide .container .title, div[data-enterin-type="blog"] .enterin-slide .container .title {
+	font-size:34px;
+	margin:25px 0px;
+	.enterin-blog-slide-title-css
+}
+
+section[data-enterin-type="blog"] .enterin-slide .container .subtitle, div[data-enterin-type="blog"] .enterin-slide .container .subtitle {
+	font-size:24px;
+	margin:25px 0px;
+	.enterin-blog-slide-subtitle-css
+}
+
+section[data-enterin-type="blog"] .enterin-slide .container .text, div[data-enterin-type="blog"] .enterin-slide .container .text {
+	line-height: 22px;
+	.enterin-blog-slide-text-css
+}

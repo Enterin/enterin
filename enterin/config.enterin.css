@@ -1,0 +1,118 @@
+/*
+* EnterIN
+* 
+* Copyright 2013 Gianfilippo Balestriero < enterin.github@gmail.com >
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*       http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+* 
+*/
+
+/*
+*
+* 	Modify the speed and the Effect of Animation
+*
+* 	@enterin-effect-speed: 		CSS3 transition-time value
+*	@enterin-effect-speed: 		CSS3 transition-ease value
+*
+*/
+
+@enterin-effect-speed: 		1s;
+
+@enterin-effect-ease: 		ease-in-out;
+
+/*
+*
+* 	Now you can override one or more css rule without touching the core.enterin.css or style.enterin.css file
+*
+*	.enterin-body-css: 						css stlye for body
+*	.enterin-wrapper-css: 					css stlye for element[data-enterin="true"]
+*	.enterin-slide-css: 					css stlye for element[data-enterin="true"] .enterin-slide
+*	.enterin-blog-wrapper-css: 				css stlye for element[data-enterin-type="blog"]
+*	.enterin-blog-slide-css: 				css stlye for element[data-enterin-type="blog"] .enterin-slide
+*	.enterin-blog-slide-odd-css: 			css stlye for element[data-enterin-type="blog"] .enterin-slide:nth-child(odd);
+*	.enterin-blog-slide-even-css: 			css stlye for element[data-enterin-type="blog"] .enterin-slide:nth-child(even);
+*	.enterin-blog-slide-active-css: 		css stlye for element[data-enterin-type="blog"] .enterin-slide.active;
+*
+*
+*/
+
+.enterin-body-css {
+	
+	// css code here
+
+}
+
+.enterin-wrapper-css {
+
+	// css code here
+
+}
+
+.enterin-slide-css {
+
+	// css code here
+
+}
+
+.enterin-blog-wrapper-css {
+
+	// css code here
+
+}
+
+.enterin-blog-slide-css {
+
+	// css code here
+}
+
+.enterin-blog-slide-odd-css {
+
+	// css code here
+
+}
+
+.enterin-blog-slide-even-css {
+
+	// css code here
+
+}
+
+.enterin-blog-slide-active-css {
+
+	// css code here
+
+}
+
+.enterin-blog-slide-container-css {
+
+	// css code here
+
+}
+
+.enterin-blog-slide-title-css {
+
+	// css code here
+
+}
+
+.enterin-blog-slide-subtitle-css {
+
+	// css code here
+
+}
+
+.enterin-blog-slide-text-css {
+
+	// css code here
+
+}
