@@ -1,0 +1,25 @@
+EnterIN
+
+Copyright (c) 2013 Gianfilippo Balestriero < enterin.github@gmail.com >
+
+This product includes software developed by
+
+Gianfilippo Balestriero (http://enterin.github.io)
+
+This product also includes the following third-party components:
+
+	* jQuery (http://jquery.org/)
+
+		Copyright (c) 2012 jQuery Foundation and other contributors
+
+	* jQuery Mousewheel
+
+		Copyright (c) 2013 Brandon Aaron (http://brandonaaron.net/)
+
+	* Less (http://www.lesscss.org/)
+
+		Copyright (c) 2009-2010 Alexis Sellier
+		
+	* Reset Stylesheet (html5doctor.com)
+
+		Author: Richard Clark - (http://richclarkdesign.com)

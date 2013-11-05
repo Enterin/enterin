@@ -1,4 +1,4 @@
-EnterIN v2.0
+EnterIN
 
 Copyright (c) 2013 Gianfilippo Balestriero < enterin.github@gmail.com >
 
