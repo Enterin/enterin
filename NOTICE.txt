@@ -22,4 +22,4 @@ This product also includes the following third-party components:
 		
 	* Reset Stylesheet (html5doctor.com)
 
-		Author: Richard Clark - (http://richclarkdesign.com)
+		Richard Clark - (http://richclarkdesign.com)

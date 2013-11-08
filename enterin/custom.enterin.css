@@ -8,15 +8,13 @@ h1 {
 body {
 	font-family: 'Arvo', 'Verdana';
 	font-size:13px;
+	background: url('http://www.lorempixel.com/1280/720') center center no-repeat transparent;
+	background-size:100% 100%;
 }
 
-article.enterin-slide.slide1{
-	background:url('http://www.magliarossonera.it/stagincorso/1011/raduno/leggo1.jpg') center center no-repeat transparent;
-	background-size:100% 100%;
-	color:white!important;
-}
-article.enterin-slide.slide2{
-	background:url('http://www.cinemaimmagina.it/stampa/rassegna_ferlito/Corriere_della_Sera_25_apri.jpg') center center no-repeat transparent;
-	background-size:100% 100%;
-	color:white!important;
+article.enterin-slide img{
+	float: left;
+	margin-left: 20px;
+	margin-right: 20px;
+	transform: translateZ(500)!important;
 }

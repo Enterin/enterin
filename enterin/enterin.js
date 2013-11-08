@@ -1,19 +1,20 @@
 /*
-* EnterIN
 * 
-* Copyright 2013 Gianfilippo Balestriero < enterin.github@gmail.com >
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*       http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
+* EnterIN JS | The new frontier of web development
+* Copyright (c) 2013 Gianfilippo Balestriero <enterin.github@gmail.com>
+* 
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as
+* published by the Free Software Foundation, either version 3 of the
+* License, or (at your option) any later version.
+* 
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU Affero General Public License for more details.
+* 
+* You should have received a copy of the GNU Affero General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * 
 */
 
@@ -48,25 +49,24 @@ if(typeof $CSS != "undefined"){
     }
 }
 
-
 $.EnterIN = {};
 
 $.EnterIN.endCallback = function(){};
 
 $.EnterIN.run = function(){
 
-    var lessHTML        = [];
+    var path = document.querySelector('script[rel="js/enterin"]').getAttribute("src");
 
-    $.jQuery("body").append('<link rel="stylesheet/less" href="'+$.LESS[0]+'" />');
-    $.jQuery("body").append('<script src="'+$.LESS[1]+'"></script>');
+    path = path.replace(/\/enterin\/enterin\.js/, '')+"/";
 
-    var cssAndLibsHTML  = [];
+    $.jQuery("body").append('<link rel="stylesheet/less" href="'+path+$.LESS[0]+'" />');
+    $.jQuery("body").append('<script src="'+path+$.LESS[1]+'"></script>');
 
     for(var i in $.CSS) {
-        $.jQuery("body").append('<link rel="stylesheet/less" href="'+$.CSS[i]+'" />');
+        $.jQuery("body").append('<link rel="stylesheet/less" href="'+path+$.CSS[i]+'" />');
     }
     for(var i in $.LIBS) {
-       $.jQuery("body").append('<script src="'+$.LIBS[i]+'"></script>');
+       $.jQuery("body").append('<script src="'+path+$.LIBS[i]+'"></script>');
     }
 
     $.EnterIN.call();
@@ -96,6 +96,8 @@ $.EnterIN.init = function(element) {
 
     $.EnterIN.reorderSlide();
 
+    $.EnterIN.bindMouseTrack();
+
     $.EnterIN.bindKeyAndMouseEvents();
 
     $.EnterIN.bindControllers();
@@ -115,6 +117,50 @@ $.EnterIN.bindControllers = function(){
         $.EnterIN.to = $.jQuery(this).data("enterin-to");
         $.EnterIN.changeSlide($.EnterIN.to);
     });
+};
+
+$.EnterIN.bindMouseTrack = function(){
+    $.jQuery("body").mousemove(function(event){
+        $.EnterIN.xMouse = event.pageX;
+        $.EnterIN.yMouse = event.pageY;
+        $.EnterIN.fireNavbars();
+    });
+};
+
+$.EnterIN.fireNavbars = function(){
+    var leftNavWidth, rightNavWidth;
+    
+    if(!$.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='left']").length){
+        leftNavWidth = false;
+    }
+    else {
+        leftNavWidth  = $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='left']").width();
+    }
+    if(!$.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='right']").length){
+        rightNavWidth = false;
+    } 
+    else {
+        rightNavWidth = $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='right']").width();
+    }   
+
+    if(!leftNavWidth && !rightNavWidth){
+        return false;
+    }
+
+    if(leftNavWidth && $.EnterIN.xMouse<=(leftNavWidth/3)){
+        $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='left']").addClass('enterin-nav-in');
+    }
+    else {
+        $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='left']").removeClass('enterin-nav-in');
+    }
+
+    if(rightNavWidth && ($.jQuery(window).width()-$.EnterIN.xMouse)<=(rightNavWidth/3)){
+        $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='right']").addClass('enterin-nav-in');
+    }
+    else {
+        $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='right']").removeClass('enterin-nav-in');
+    }    
+
 };
 
 $.EnterIN.reorderSlide = function() {
@@ -141,7 +187,7 @@ $.EnterIN.bindKeyAndMouseEvents =  function(){
 
     $.EnterIN.wrapper.bind("mousewheel", function(event, delta){
 
-        if($.EnterIN.kmTime && (event.timeStamp-$.EnterIN.kmTime) < 300 ){
+        if( ( $.EnterIN.kmTime && (event.timeStamp-$.EnterIN.kmTime) < 300 ) || $.EnterIN.inSlide == true){
             return;
         }
         
@@ -170,9 +216,10 @@ $.EnterIN.bindKeyAndMouseEvents =  function(){
         
         $.EnterIN.kmTime = event.timeStamp;        
 
-        var keyCode = event.keyCode || event.which,
+        var keyCode = event.keyCode || event.which;
 
-        arrow = {left: 37, up: 38, right: 39, down: 40 };
+        arrow   = {left: 37, up: 38, right: 39, down: 40};
+        letters = {z: 90};
 
         switch (keyCode) {
             case arrow.left:
@@ -188,11 +235,14 @@ $.EnterIN.bindKeyAndMouseEvents =  function(){
                 event.preventDefault();
                 $.EnterIN.to = $.EnterIN.to-1;
             break;
-
             case arrow.down:
                 event.preventDefault();
                 $.EnterIN.to = $.EnterIN.to+1;
             break;
+            case letters.z:
+                event.preventDefault();
+                $.EnterIN.makeZoom();
+            break;            
         }
 
         $.EnterIN.keyFire();
@@ -217,6 +267,17 @@ $.EnterIN.keyFire = function(){
 
 };
 
+$.EnterIN.makeZoom = function(){
+    if(!$.EnterIN.isZoom){
+        $.jQuery("body[data-enterin-zoom='true']").addClass("enterin-zoom");
+        $.EnterIN.isZoom = true;
+    }
+    else {
+        $.jQuery("body[data-enterin-zoom='true']").removeClass("enterin-zoom");
+        $.EnterIN.isZoom = false;
+    }
+};
+
 $.EnterIN.bindAnimation = function(){
 
     $.EnterIN.slides.unbind('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd');
@@ -237,9 +298,16 @@ $.EnterIN.bindHoverSlides = function() {
     $.EnterIN.slides.bind("mouseenter", function(){
         $.EnterIN.slides.removeClass("mouseenter");
         $.jQuery(this).addClass("mouseenter");
+        if($.jQuery(this).hasClass("enterin-active")){
+            $.EnterIN.inSlide = true;
+        }
+       
     });
     $.EnterIN.slides.bind("mouseleave", function(){
         $.EnterIN.slides.removeClass("mouseenter");
+        if($.jQuery(this).hasClass("enterin-active")){
+            $.EnterIN.inSlide = false;
+        }
     });     
 };
 
@@ -309,12 +377,9 @@ $.EnterIN.goToSlide = function(slideIndex, scaleOverride){
 };
 
 function run(){
-
     var JQUERYSCRIPT = document.createElement('script');
 
     JQUERYSCRIPT.src = '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js';
-
-    document.querySelector('body').appendChild(JQUERYSCRIPT);
 
     var $old = $;
 
@@ -336,6 +401,15 @@ function run(){
         $.EnterIN.run();
 
     };   
+
+    document.querySelector('body').appendChild(JQUERYSCRIPT);
+
+
 };
 
-run();
+document.querySelector("body").style.opacity=0;
+
+window.onload = function(){
+    document.querySelector("body").style.opacity=1;
+    run();
+};

@@ -18,53 +18,39 @@
 * 
 */
 
-/*
-* 
-* 	Your config file
-* 
-*/
-@import (less) '../config.enterin.css';
+section[data-enterin-type="page"], div[data-enterin-type="page"] {
+	position: fixed;
+	width: 100%;
+	height: 90%;
+	min-height: 90%;		
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	margin: auto auto;
 
-/*
-* 
-* 	EnterIN Core Style ( don't modify )
-* 
-*/
-@import (less) 'core.enterin.css';
+	.enterin-page-wrapper-css;
 
-/*
-* 
-* 	EnterIN Page Style ( don't modify )
-* 
-*/
-@import (less) 'page.enterin.css';
+}
 
 
-/*
-* 
-* 	EnterIN Blog Style ( don't modify )
-* 
-*/
-@import (less) 'blog.enterin.css';
+section[data-enterin-type="page"] .enterin-slide, div[data-enterin-type="page"] .enterin-slide{
+	
+	width: 708px;
+	top:0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	
+	overflow-y: auto;
 
-/*
-* 
-* 	EnterIN Morph Style ( don't modify )
-* 
-*/
-@import (less) 'morph.enterin.css';
+	margin:auto auto;
 
+	background: white;
 
-/*
-* 
-* 	EnterIN Navbar Style ( don't modify )
-* 
-*/
-@import (less) 'navbar.enterin.css';
+	border:1px solid rgba(0,0,0,0.5);
+	border-radius: 1px;
 
-/*
-* 
-* 	Custom Css Rules ( don't modify )
-* 
-*/
-@import (less) '../custom.enterin.css';
+	.enterin-page-slide-css
+
+}
