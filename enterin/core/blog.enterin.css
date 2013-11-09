@@ -53,14 +53,6 @@ section[data-enterin-type="blog"] .enterin-slide, div[data-enterin-type="blog"] 
 
 }
 
-section[data-enterin-type="blog"] .enterin-slide .title, div[data-enterin-type="blog"] .enterin-slide .title{
-
-	font-size:22px;
-
-	.enterin-blog-slide-title-css
-
-}
-
 section[data-enterin-type="blog"] .enterin-slide:nth-child(odd), div[data-enterin-type="blog"] .enterin-slide:nth-child(odd) {
 	
 	left: -400px;
@@ -94,10 +86,14 @@ section[data-enterin-type="blog"] .enterin-slide .container, div[data-enterin-ty
 	.enterin-blog-slide-container-css
 }
 
-section[data-enterin-type="blog"] .enterin-slide .container .title, div[data-enterin-type="blog"] .enterin-slide .container .title {
-	font-size:34px;
-	margin:25px 0px;
+
+section[data-enterin-type="blog"] .enterin-slide .title, div[data-enterin-type="blog"] .enterin-slide .title{
+
+	font-size:42px;
+	margin: 0px;
+	padding: 0px;
 	.enterin-blog-slide-title-css
+
 }
 
 section[data-enterin-type="blog"] .enterin-slide .container .subtitle, div[data-enterin-type="blog"] .enterin-slide .container .subtitle {

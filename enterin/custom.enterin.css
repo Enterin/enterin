@@ -1,14 +1,33 @@
-// now you can write your css here!
+/*
+* 
+* EnterIN JS | The new frontier of web development
+* Copyright (c) 2013 Gianfilippo Balestriero <enterin.github@gmail.com>
+* 
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as
+* published by the Free Software Foundation, either version 3 of the
+* License, or (at your option) any later version.
+* 
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU Affero General Public License for more details.
+* 
+* You should have received a copy of the GNU Affero General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+* 
+*/
 
-@import url(http://fonts.googleapis.com/css?family=Arvo);
+@import (css) url(http://fonts.googleapis.com/css?family=Arvo);
 
 h1 {
 	font-size:22px;
+	margin: 0px;
+	padding: 0px;
 }
 body {
 	font-family: 'Arvo', 'Verdana';
-	font-size:13px;
-	background: url('http://www.lorempixel.com/1280/720') center center no-repeat transparent;
+	font-size:12px;
 	background-size:100% 100%;
 }
 
@@ -16,5 +35,4 @@ article.enterin-slide img{
 	float: left;
 	margin-left: 20px;
 	margin-right: 20px;
-	transform: translateZ(500)!important;
 }

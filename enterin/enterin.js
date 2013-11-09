@@ -18,9 +18,11 @@
 * 
 */
 
-var $ = {};
+var $old    = jQuery;
 
-$.jQueryCDN = '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js';
+var $       = {};
+
+$.jQuery    = $old;
 
 $.log = function($obj){
     console.log("%c[--- EnterIN Log -", 'color: #2980b9; font-weight:bold;');
@@ -51,6 +53,21 @@ if(typeof $CSS != "undefined"){
 
 $.EnterIN = {};
 
+$.EnterIN.cssLoad = function(path, rel){
+    var link = $.jQuery('<link>');
+    link.attr("rel", 'stylesheet/less');
+    link.attr('href', path);
+
+    $.jQuery("head").append(link);
+};
+
+$.EnterIN.jsLoad = function(path){
+    var script = $.jQuery('<script>');
+    script.attr('src', path);
+
+    $.jQuery("head").append(script);  
+};
+
 $.EnterIN.endCallback = function(){};
 
 $.EnterIN.run = function(){
@@ -59,20 +76,21 @@ $.EnterIN.run = function(){
 
     path = path.replace(/\/enterin\/enterin\.js/, '')+"/";
 
-    $.jQuery("body").append('<link rel="stylesheet/less" href="'+path+$.LESS[0]+'" />');
-    $.jQuery("body").append('<script src="'+path+$.LESS[1]+'"></script>');
+    $.EnterIN.cssLoad(path+$.LESS[0]);
+    $.EnterIN.jsLoad(path+$.LESS[1]);
 
     for(var i in $.CSS) {
-        $.jQuery("body").append('<link rel="stylesheet/less" href="'+path+$.CSS[i]+'" />');
+        $.EnterIN.cssLoad(path+$.CSS[i]);
     }
     for(var i in $.LIBS) {
-       $.jQuery("body").append('<script src="'+path+$.LIBS[i]+'"></script>');
+       $.EnterIN.jsLoad(path+$.LIBS[i]);
     }
 
-    $.EnterIN.call();
+    window.onload = function(){
+        $.EnterIN.call();
+    }
 
 };
-
 
 $.EnterIN.call = function() {
 
@@ -150,14 +168,14 @@ $.EnterIN.fireNavbars = function(){
     if(leftNavWidth && $.EnterIN.xMouse<=(leftNavWidth/3)){
         $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='left']").addClass('enterin-nav-in');
     }
-    else {
+    else if($.EnterIN.xMouse>leftNavWidth) {
         $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='left']").removeClass('enterin-nav-in');
     }
 
     if(rightNavWidth && ($.jQuery(window).width()-$.EnterIN.xMouse)<=(rightNavWidth/3)){
         $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='right']").addClass('enterin-nav-in');
     }
-    else {
+    else if( ($.jQuery(window).width()-$.EnterIN.xMouse) >=(rightNavWidth) ) {
         $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='right']").removeClass('enterin-nav-in');
     }    
 
@@ -376,40 +394,5 @@ $.EnterIN.goToSlide = function(slideIndex, scaleOverride){
     },30);
 };
 
-function run(){
-    var JQUERYSCRIPT = document.createElement('script');
 
-    JQUERYSCRIPT.src = '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js';
-
-    var $old = $;
-
-    JQUERYSCRIPT.onload = function(){
-
-        $           = {};
-        
-        $.jQuery    = jQuery;
-
-        $.EnterIN   = $old.EnterIN;
-
-        $.log       = $old.log;
-
-        $.LESS      = $old.LESS;
-
-        $.LIBS      = $old.LIBS;
-        $.CSS       = $old.CSS;
-
-        $.EnterIN.run();
-
-    };   
-
-    document.querySelector('body').appendChild(JQUERYSCRIPT);
-
-
-};
-
-document.querySelector("body").style.opacity=0;
-
-window.onload = function(){
-    document.querySelector("body").style.opacity=1;
-    run();
-};
+$.EnterIN.run();
