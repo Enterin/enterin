@@ -18,7 +18,7 @@
 * 
 */
 
-@import (css) url(http://fonts.googleapis.com/css?family=Arvo);
+@import (css) url(http://fonts.googleapis.com/css?family=Ralewey);
 
 h1 {
 	font-size:22px;
@@ -26,7 +26,7 @@ h1 {
 	padding: 0px;
 }
 body {
-	font-family: 'Arvo', 'Verdana';
+	font-family: 'Ralewey','Open Sans','Droid Sans',arial,sans-serif;
 	font-size:12px;
 	background-size:100% 100%;
 }

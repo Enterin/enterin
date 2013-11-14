@@ -30,6 +30,16 @@ $.log = function($obj){
     console.log("%c- EnterIN Log ---]", 'color: #2980b9; font-weight:bold;');
 };
 
+$.MOBILE = [
+    'Android',
+    'iPhone',
+    'iPad',
+    'iPod',
+    'BlackBerry',
+    'Windows Phone',
+    'webOS'
+];
+
 $.LESS = [
     'enterin/core/style.enterin.css',
     'enterin/libs/less/less.js'
@@ -52,6 +62,19 @@ if(typeof $CSS != "undefined"){
 }
 
 $.EnterIN = {};
+
+$.EnterIN.detectMobile = function(){
+    $.EnterIN.isMobile = false;
+    for(var m in $.MOBILE){
+        var $mobile  = $.MOBILE[m];
+        var $pattern = new RegExp($mobile, 'i');
+        var $match   = navigator.userAgent.match($pattern);
+        if($match){
+            $.EnterIN.isMobile = true;
+            break;
+        }
+    }
+};
 
 $.EnterIN.cssLoad = function(path, rel){
     var link = $.jQuery('<link>');
@@ -101,6 +124,8 @@ $.EnterIN.call = function() {
 };
 
 $.EnterIN.init = function(element) {
+
+    $.EnterIN.detectMobile();
 
     $.EnterIN.wrapper = $.jQuery(element);
 
