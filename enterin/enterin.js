@@ -102,6 +102,12 @@ $.EnterIN.run = function(){
     $.EnterIN.cssLoad(path+$.LESS[0]);
     $.EnterIN.jsLoad(path+$.LESS[1]);
 
+    $.EnterIN.detectMobile();
+
+    if($.EnterIN.isMobile) {
+        $.LIBS.push('enterin/enterin.mobile.js');
+    }
+
     for(var i in $.CSS) {
         $.EnterIN.cssLoad(path+$.CSS[i]);
     }
@@ -125,8 +131,6 @@ $.EnterIN.call = function() {
 
 $.EnterIN.init = function(element) {
 
-    $.EnterIN.detectMobile();
-
     $.EnterIN.wrapper = $.jQuery(element);
 
     $.EnterIN.isInit  = true;
@@ -139,15 +143,18 @@ $.EnterIN.init = function(element) {
 
     $.EnterIN.reorderSlide();
 
-    $.EnterIN.bindMouseTrack();
-
-    $.EnterIN.bindKeyAndMouseEvents();
+    if(!$.EnterIN.isMobile){
+        $.EnterIN.bindMouseTrack();
+        $.EnterIN.bindKeyAndMouseEvents();
+    }
 
     $.EnterIN.bindControllers();
 
     $.EnterIN.bindAnimation();
 
-    $.EnterIN.bindHoverSlides();
+    if(!$.EnterIN.isMobile){
+        $.EnterIN.bindHoverSlides();
+    }
 
     $.EnterIN.isInit = false;
 
