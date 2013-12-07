@@ -55,10 +55,15 @@ $.EnterIN.mobile.detectOrientation = function(orientation){
 
 $.EnterIN.mobile.bindSwipe= function(){
 
+	document.ontouchmove = function(event){
+		event.preventDefault();
+	};
+
 	$.EnterIN.wrapper.swipe({
 		swipe:function(event, direction, distance, duration, fingerCount) {
 			$.EnterIN.mobile.detectSwipe(event, direction, distance, duration, fingerCount);	
 		},
+		fingers:'all',
 		threshold:0
 	});
 
@@ -86,8 +91,15 @@ $.EnterIN.mobile.detectSwipe = function(event, direction, distance, duration, fi
 	}
 
 	setTimeout(function(){
-		$.EnterIN.changeSlide(to);
-	},300);
+
+		if(fingerCount == 1){
+			$.EnterIN.changeSlide(to);
+		}
+		else if(fingerCount == 2){
+			$.EnterIN.showGrid();
+		}
+
+	},150);
 
 	
 };
