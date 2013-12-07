@@ -18,6 +18,11 @@
 * 
 */
 
+body {
+	background: url('http://lorempixel.com/1280/720/nature/?rand=7') top left no-repeat transparent;
+	background-size: 100%;
+}
+
 h1 {
 	font-size:22px;
 	margin: 0px;
@@ -29,8 +34,13 @@ body {
 	background-size:100% 100%;
 }
 
-article.enterin-slide img{
-	float: left;
-	margin-left: 20px;
-	margin-right: 20px;
+.enterin-slide img{
+	width: 100%;
+	display: block;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	margin: auto auto;
 }

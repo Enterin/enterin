@@ -105,7 +105,8 @@ $.EnterIN.run = function(){
     $.EnterIN.detectMobile();
 
     if($.EnterIN.isMobile) {
-        $.LIBS.push('enterin/enterin.mobile.js');
+        $.LIBS.push('enterin/libs/touch-swipe/jquery.touchswipe.js');
+        $.LIBS.push('enterin/mobile.enterin.js');
     }
 
     for(var i in $.CSS) {
@@ -159,6 +160,10 @@ $.EnterIN.init = function(element) {
     $.EnterIN.isInit = false;
 
     $.EnterIN.changeSlide(1);
+
+    if($.EnterIN.isMobile) {
+        $.EnterIN.mobile.init();
+    }
 
 };
 
@@ -275,7 +280,6 @@ $.EnterIN.bindKeyAndMouseEvents =  function(){
             case arrow.left:
                 event.preventDefault();
                 $.EnterIN.to = $.EnterIN.to-1;
-
             break;
             case arrow.right:
                 event.preventDefault();

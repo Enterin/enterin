@@ -23,7 +23,7 @@
 * 	Modify the speed and the Effect of Animation
 *
 * 	@enterin-effect-speed: 		CSS3 transition-time value
-*	@enterin-effect-speed: 		CSS3 transition-ease value
+*	enterin-effect-ease: 		CSS3 transition-ease value
 *
 */
 
@@ -38,12 +38,6 @@
 *	.enterin-body-css: 						css stlye for body
 *	.enterin-wrapper-css: 					css stlye for element[data-enterin="true"]
 *	.enterin-slide-css: 					css stlye for element[data-enterin="true"] .enterin-slide
-*	.enterin-blog-wrapper-css: 				css stlye for element[data-enterin-type="blog"]
-*	.enterin-blog-slide-css: 				css stlye for element[data-enterin-type="blog"] .enterin-slide
-*	.enterin-blog-slide-odd-css: 			css stlye for element[data-enterin-type="blog"] .enterin-slide:nth-child(odd);
-*	.enterin-blog-slide-even-css: 			css stlye for element[data-enterin-type="blog"] .enterin-slide:nth-child(even);
-*	.enterin-blog-slide-active-css: 		css stlye for element[data-enterin-type="blog"] .enterin-slide.active;
-*
 *
 */
 
@@ -65,66 +59,13 @@
 
 }
 
-.enterin-blog-wrapper-css {
+.enterin-wrapper-css {
 
 	// css code here
 
 }
 
-.enterin-page-wrapper-css {
+.enterin-slide-css {
 
 	// css code here
-
-}
-
-.enterin-page-slide-css {
-
-	// css code here
-}
-
-.enterin-blog-slide-css {
-
-	// css code here
-}
-
-.enterin-blog-slide-odd-css {
-
-	// css code here
-
-}
-
-.enterin-blog-slide-even-css {
-
-	// css code here
-
-}
-
-.enterin-blog-slide-active-css {
-
-	// css code here
-
-}
-
-.enterin-blog-slide-container-css {
-
-	// css code here
-
-}
-
-.enterin-blog-slide-title-css {
-
-	// css code here
-
-}
-
-.enterin-blog-slide-subtitle-css {
-
-	// css code here
-
-}
-
-.enterin-blog-slide-text-css {
-
-	// css code here
-
 }
