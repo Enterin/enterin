@@ -19,8 +19,10 @@
 */
 
 body {
+	font-family: 'Ralewey','Open Sans','Droid Sans',arial,sans-serif;
+	font-size:12px;
 	background: url('http://lorempixel.com/1280/720/nature/?rand=7') top left no-repeat transparent;
-	background-size: 100%;
+	background-size: 100% 100%;
 }
 
 h1 {
@@ -28,11 +30,7 @@ h1 {
 	margin: 0px;
 	padding: 0px;
 }
-body {
-	font-family: 'Ralewey','Open Sans','Droid Sans',arial,sans-serif;
-	font-size:12px;
-	background-size:100% 100%;
-}
+
 
 .enterin-slide img{
 	width: 100%;
@@ -43,4 +41,8 @@ body {
 	bottom: 0px;
 	right: 0px;
 	margin: auto auto;
+}
+
+section[data-enterin="true"].show-grid .enterin-slide img, div[data-enterin="true"].show-grid .enterin-slide img{
+	position: static;
 }

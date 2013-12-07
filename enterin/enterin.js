@@ -169,6 +169,9 @@ $.EnterIN.init = function(element) {
 
 $.EnterIN.bindControllers = function(){
     $.jQuery("body").find("[data-enterin-to]").click(function(){
+        if($.EnterIN.inGrid){
+            $.EnterIN.hideGrid();
+        }
         $.EnterIN.to = $.jQuery(this).data("enterin-to");
         $.EnterIN.changeSlide($.EnterIN.to);
     });
@@ -242,7 +245,7 @@ $.EnterIN.bindKeyAndMouseEvents =  function(){
 
     $.EnterIN.wrapper.bind("mousewheel", function(event, delta){
 
-        if( ( $.EnterIN.kmTime && (event.timeStamp-$.EnterIN.kmTime) < 300 ) || $.EnterIN.inSlide == true){
+        if( ( $.EnterIN.kmTime && (event.timeStamp-$.EnterIN.kmTime) < 300 ) || $.EnterIN.inSlide == true || $.EnterIN.inGrid){
             return;
         }
         
@@ -269,12 +272,12 @@ $.EnterIN.bindKeyAndMouseEvents =  function(){
             return;
         }
         
-        $.EnterIN.kmTime = event.timeStamp;        
+        $.EnterIN.kmTime = event.timeStamp;
 
         var keyCode = event.keyCode || event.which;
 
         arrow   = {left: 37, up: 38, right: 39, down: 40};
-        letters = {z: 90};
+        letters = {g:71, z: 90};
 
         switch (keyCode) {
             case arrow.left:
@@ -296,7 +299,14 @@ $.EnterIN.bindKeyAndMouseEvents =  function(){
             case letters.z:
                 event.preventDefault();
                 $.EnterIN.makeZoom();
-            break;            
+            break;   
+            case letters.g:
+                event.preventDefault();
+                if(!$.EnterIN.inGrid)
+                    $.EnterIN.showGrid();
+                else
+                    $.EnterIN.hideGrid();
+            break;                     
         }
 
         $.EnterIN.keyFire();
@@ -430,5 +440,21 @@ $.EnterIN.goToSlide = function(slideIndex, scaleOverride){
     },30);
 };
 
+$.EnterIN.showGrid = function(){
+    $.EnterIN.inGrid = true;
+    $.EnterIN.changeSlide(1);
+    $.EnterIN.wrapper.addClass('show-grid');
+    if($.EnterIN.isMobile){
+        $.EnterIN.wrapper.swipe("disable");
+    }
+};
+
+$.EnterIN.hideGrid = function(){
+    $.EnterIN.inGrid = false;
+    $.EnterIN.wrapper.removeClass('show-grid');
+    if($.EnterIN.isMobile){
+        $.EnterIN.wrapper.swipe("enable");
+    }    
+};
 
 $.EnterIN.run();

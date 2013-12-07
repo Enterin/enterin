@@ -78,12 +78,32 @@ section[data-enterin="true"] .enterin-slide, div[data-enterin="true"] .enterin-s
 
 }
 
+section[data-enterin="true"].show-grid, div[data-enterin="true"].show-grid {
+	overflow: auto!important;
+	-webkit-overflow-scrolling: touch;	
+}
+
+section[data-enterin="true"].show-grid .enterin-slide, div[data-enterin="true"].show-grid .enterin-slide {
+	position: static;
+	margin:5%;
+	padding: 0px;
+	display: inline-block;
+	opacity: 1!important;
+	width: 23%;
+	-webkit-transform: scale(1)!important;
+	-moz-transform: scale(1)!important;
+	-ms-transform: scale(1)!important;
+	-o-transform: scale(1)!important;
+	transform: scale(1)!important;
+	z-index: 50!important;
+}
+
 [data-enterin-zoom="true"] {
 	-moz-transition: all @enterin-effect-speed @enterin-effect-ease, width 0.0s, z-index 0.0s;
 	-webkit-transition: all @enterin-effect-speed @enterin-effect-ease, width 0.0s, z-index 0.0s;
 	-ms-transition: all @enterin-effect-speed @enterin-effect-ease, width 0.0s, z-index 0.0s;
 	-o-transition: all @enterin-effect-speed @enterin-effect-ease, width 0.0s, z-index 0.0s;
-	transition: all @enterin-effect-speed @enterin-effect-ease, width 0.0s, z-index 0.0s;	
+	transition: all @enterin-effect-speed @enterin-effect-ease, width 0.0s, z-index 0.0s;
 }
 
 .enterin-zoom {
