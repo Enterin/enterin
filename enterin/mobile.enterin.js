@@ -27,9 +27,17 @@ $.EnterIN.mobile = {};
 
 $.EnterIN.mobile.init = function(){
 
+	$.EnterIN.mobile.hideAddressBar();
+
 	$.EnterIN.mobile.bindOrientationChange();
 	$.EnterIN.mobile.bindSwipe();
 
+};
+
+$.EnterIN.mobile.hideAddressBar = function(){
+    setTimeout(function(){
+        window.scrollTo(0, 1);
+    }, 0);
 };
 
 $.EnterIN.mobile.bindOrientationChange = function(){
@@ -70,6 +78,8 @@ $.EnterIN.mobile.detectSwipe = function(event, direction, distance, duration, fi
 	if($.EnterIN.inGrid){
 		return false;
 	}
+
+	event.preventDefault();
 
 	var to = $.EnterIN.to;
 

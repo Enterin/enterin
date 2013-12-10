@@ -145,7 +145,6 @@ $.EnterIN.init = function(element) {
     $.EnterIN.reorderSlide();
 
     if(!$.EnterIN.isMobile){
-        $.EnterIN.bindMouseTrack();
         $.EnterIN.bindKeyAndMouseEvents();
     }
 
@@ -177,50 +176,6 @@ $.EnterIN.bindControllers = function(){
     });
 };
 
-$.EnterIN.bindMouseTrack = function(){
-    $.jQuery("body").mousemove(function(event){
-        $.EnterIN.xMouse = event.pageX;
-        $.EnterIN.yMouse = event.pageY;
-        $.EnterIN.fireNavbars();
-    });
-};
-
-$.EnterIN.fireNavbars = function(){
-    var leftNavWidth, rightNavWidth;
-    
-    if(!$.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='left']").length){
-        leftNavWidth = false;
-    }
-    else {
-        leftNavWidth  = $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='left']").width();
-    }
-    if(!$.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='right']").length){
-        rightNavWidth = false;
-    } 
-    else {
-        rightNavWidth = $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='right']").width();
-    }   
-
-    if(!leftNavWidth && !rightNavWidth){
-        return false;
-    }
-
-    if(leftNavWidth && $.EnterIN.xMouse<=(leftNavWidth/3)){
-        $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='left']").addClass('enterin-nav-in');
-    }
-    else if($.EnterIN.xMouse>leftNavWidth) {
-        $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='left']").removeClass('enterin-nav-in');
-    }
-
-    if(rightNavWidth && ($.jQuery(window).width()-$.EnterIN.xMouse)<=(rightNavWidth/3)){
-        $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='right']").addClass('enterin-nav-in');
-    }
-    else if( ($.jQuery(window).width()-$.EnterIN.xMouse) >=(rightNavWidth) ) {
-        $.jQuery("div[data-enterin-nav='true'][data-enterin-nav-side='right']").removeClass('enterin-nav-in');
-    }    
-
-};
-
 $.EnterIN.reorderSlide = function() {
 
     var markupHtml = $.EnterIN.wrapper.clone();
@@ -242,6 +197,27 @@ $.EnterIN.reorderSlide = function() {
 };
 
 $.EnterIN.bindKeyAndMouseEvents =  function(){
+
+    $.EnterIN.wrapper.bind('mousedown', function(event) {
+
+        var centerClick;
+        
+        if (!event) {
+            var event = window.event;
+        } 
+
+        if (event.which) {
+            centerClick = (event.which == 2);
+        }
+        else if (event.button) {
+            centerClick = (event.button == 2);           
+        }  
+
+        if(centerClick) {
+            $.EnterIN.showGrid();
+        }
+
+    });
 
     $.EnterIN.wrapper.bind("mousewheel", function(event, delta){
 

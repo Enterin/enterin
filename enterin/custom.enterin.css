@@ -46,3 +46,48 @@ h1 {
 section[data-enterin="true"].show-grid .enterin-slide img, div[data-enterin="true"].show-grid .enterin-slide img{
 	position: static;
 }
+
+section[data-enterin="true"] article.enterin-slide, div[data-enterin="true"] article.enterin-slide {
+	background: white;
+}
+
+section[data-enterin="true"] article.enterin-slide .container, div[data-enterin="true"] article.enterin-slide  .container{
+	padding: 3%;
+	line-height: 20px;
+	overflow: auto!important;
+	height: 100%;
+	min-height: 100%;
+}
+
+.classic, .shapes {
+	background: white;
+}
+
+.classic .enterin-logo img {
+	width: auto;
+	height: 240px;
+}
+
+.classic .enterin-slide img {
+	width: auto;
+	height: 240px;
+}
+
+
+.shapes .enterin-slide {
+	-webkit-transform: scale(1)!important;
+	-moz-transform: scale(1)!important;
+	-ms-transform: scale(1)!important;
+	-o-transform: scale(1)!important;
+	transform: scale(1);
+}
+
+.shapes img {
+	display: block;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	margin: auto auto;
+}
