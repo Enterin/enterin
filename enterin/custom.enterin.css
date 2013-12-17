@@ -63,23 +63,22 @@ section[data-enterin="true"] article.enterin-slide .container, div[data-enterin=
 	background: white;
 }
 
-.classic .enterin-logo img {
-	width: auto;
-	height: 240px;
-}
 
 .classic .enterin-slide img {
-	width: auto;
-	height: 240px;
+	width: 100%;
 }
 
+.classic .enterin-logo img {
+	width: auto;
+	height: 140px;
+}
 
 .shapes .enterin-slide {
 	-webkit-transform: scale(1)!important;
 	-moz-transform: scale(1)!important;
 	-ms-transform: scale(1)!important;
 	-o-transform: scale(1)!important;
-	transform: scale(1);
+	transform: scale(1)!important;
 }
 
 .shapes img {
