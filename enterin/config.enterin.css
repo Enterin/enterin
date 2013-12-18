@@ -23,7 +23,7 @@
 * 	Modify the speed and the Effect of Animation
 *
 * 	@enterin-effect-speed: 		CSS3 transition-time value
-*	enterin-effect-ease: 		CSS3 transition-ease value
+*	@enterin-effect-ease: 		CSS3 transition-ease value
 *
 */
 
@@ -35,37 +35,26 @@
 *
 * 	Now you can override one or more css rule without touching the core.enterin.css or style.enterin.css file
 *
-*	.enterin-body-css: 						css stlye for body
-*	.enterin-wrapper-css: 					css stlye for element[data-enterin="true"]
-*	.enterin-slide-css: 					css stlye for element[data-enterin="true"] .enterin-slide
+*	.enterin-body-css: 						css style for body
+*	.enterin-wrapper-css: 					css style for element[data-enterin="true"]
+*	.enterin-slide-css: 					css style for element[data-enterin="true"] .enterin-slide
 *
 */
 
 .enterin-body-css {
 	
-	// css code here
+	/* css code here */
 
 }
 
 .enterin-wrapper-css {
 
-	// css code here
+	/* css code here */
 
 }
 
 .enterin-slide-css {
 
-	// css code here
-
-}
-
-.enterin-wrapper-css {
-
-	// css code here
-
-}
-
-.enterin-slide-css {
-
-	// css code here
+	/* css code here */
+	
 }

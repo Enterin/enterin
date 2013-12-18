@@ -168,9 +168,6 @@ $.EnterIN.init = function(element) {
 
 $.EnterIN.bindControllers = function(){
     $.jQuery("body").find("[data-enterin-to]").click(function(){
-        if($.EnterIN.inGrid){
-            $.EnterIN.hideGrid();
-        }
         $.EnterIN.to = $.jQuery(this).data("enterin-to");
         $.EnterIN.changeSlide($.EnterIN.to);
     });
@@ -370,7 +367,11 @@ $.EnterIN.changeActive = function(){
 };
 
 $.EnterIN.changeSlide = function(to){
-
+    
+    if($.EnterIN.inGrid){
+        $.EnterIN.hideGrid();
+    }
+    
     $.EnterIN.slides.each(function(i, val){
 
         var a = (1/$.EnterIN.count)*(i+1);
