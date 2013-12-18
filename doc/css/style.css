@@ -1,0 +1,231 @@
+/*
+*
+* EnterIN.JS
+* Copyright (c) 2013 Gianfilippo Balestriero <info@enterinjs.com>
+* 
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as
+* published by the Free Software Foundation, either version 3 of the
+* License, or (at your option) any later version.
+* 
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU Affero General Public License for more details.
+* 
+* You should have received a copy of the GNU Affero General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+* 
+*/
+@import url(http://fonts.googleapis.com/css?family=Raleway:100);
+
+body, html {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	margin:0px;
+	padding:0px;
+	font-family: 'Open Sans','Droid Sans',arial,sans-serif;
+	font-size: 16px;
+	color:#444;
+}
+
+a {
+	color:#00B3FF;
+	text-decoration: none;
+}
+h1,h2, h5 {
+	font-family: 'Raleway', 'Open Sans','Droid Sans',arial,sans-serif;
+}
+h1,h2,h3,h4,h5,p {
+	margin: 0px;
+	padding: 0px;
+	font-weight: normal;
+}
+header {
+	text-align: right;
+	top:10px;
+	right: 20px;
+	position: fixed;
+}
+
+#wrapper {
+	width: 77%;
+	margin: 2% auto;
+	line-height: 33px;
+	margin-top:50px;
+}
+#wrapper h1 {
+	font-size: 84px;
+	margin-left: -3px;
+	display: inline-block;
+}
+
+#wrapper h2 {
+	margin-top:30px;
+	font-size: 23px;
+	display: inline-block;
+	margin-left:20px;
+}
+#wrapper h3 {
+	margin-top:66px;
+
+	line-height: 80px;
+	font-size: 68px;
+	margin-left:-5px;
+	font-weight: normal;
+}
+#wrapper h4 {
+	margin: 10px 0px;
+	margin-bottom: 0px;
+	font-size:20px;
+}
+
+#wrapper p {
+	padding: 0px;
+	margin: 0px;
+}
+
+.donate {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.donate input[type="text"] {
+	font-size:20px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 100px;
+	padding:4px;
+}
+
+.donate input[type="image"] {
+	display: inline-block;
+	vertical-align: middle;
+	padding:3px;
+}
+
+.donate .s {
+	display: inline-block;
+	font-size: 30px;
+	vertical-align: middle;
+	margin: 0px 4px;
+	margin-right: 15px;
+	margin-top:-6px;
+}
+
+#social {
+
+	padding:20px;
+	text-align: center;
+}
+
+#social .col{
+	display: inline-block;
+	width:100px;
+	margin-right: 50px;
+	height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+#social iframe {
+	display: inline-block;
+	width: 100px;
+	overflow: hidden;
+	height: 20px;
+	font-size: 44px!important
+}
+
+#comments {
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+	width: 50%;	
+}
+
+#comments iframe, #comments span {
+	width: 100%!important;
+}
+
+footer {
+
+	text-align: right;
+	padding: 50px 0px;
+}
+
+#wrapper .thanks {
+
+
+	margin-bottom: 100px;	
+
+}
+
+#wrapper .thanks .content{
+	padding:4%;
+	text-align: center;
+}
+
+
+#wrapper .thanks .content h2{
+	margin:0px!important;
+	padding: 0px!important;
+	margin-left: -4px!important;
+	margin-bottom: 30px!important;
+	font-size: 45px;
+	font-weight: bold
+}
+
+#wrapper .thanks .content h3{
+	margin:30px!important;
+	padding: 0px!important;
+	font-size: 25px;
+	font-weight: bold
+}
+
+#wrapper .thanks .content p {
+	font-size:16px;
+}
+
+#wrapper .thanks .content .donate {
+	margin-top:50px;
+}
+
+ul {
+	margin-bottom:20px;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+ul li:before {
+	content: '- ';
+	color:white!important;
+}
+
+.ok * {
+	color:lightgreen!important;
+}
+
+.ko *{
+	color:#ffa0a0!important;
+}
+
+.legal *{
+	color:#f0e68c!important;
+}
+
+.folders {
+	white-space: normal!important;
+	font-weight: normal!important;
+}
+
+.raw * {
+	color:white!important;
+}
+
+.raw b *{
+	color:lightgreen!important;
+}
