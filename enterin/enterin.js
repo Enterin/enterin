@@ -166,10 +166,34 @@ $.EnterIN.init = function(element) {
 
 };
 
+$.EnterIN.detectCenterClick = function(event){
+
+        var centerClick = false;
+        
+        if (!event) {
+            var event = window.event;
+        } 
+
+        if (event.which) {
+            centerClick = (event.which == 2);
+        }
+        else if (event.button) {
+            centerClick = (event.button == 2);           
+        } 
+
+        return centerClick
+};
+
 $.EnterIN.bindControllers = function(){
-    $.jQuery("body").find("[data-enterin-to]").click(function(){
+    $.jQuery("body").find("[data-enterin-to]").click(function(event){
+        if($.EnterIN.detectCenterClick(event)){
+            return;
+        }
         $.EnterIN.to = $.jQuery(this).data("enterin-to");
-        $.EnterIN.changeSlide($.EnterIN.to);
+        $.EnterIN.changeSlide($.EnterIN.to);        
+        if($.EnterIN.inGrid){
+            $.EnterIN.hideGrid();
+        }
     });
 };
 
@@ -197,21 +221,14 @@ $.EnterIN.bindKeyAndMouseEvents =  function(){
 
     $.EnterIN.wrapper.bind('mousedown', function(event) {
 
-        var centerClick;
-        
-        if (!event) {
-            var event = window.event;
-        } 
-
-        if (event.which) {
-            centerClick = (event.which == 2);
-        }
-        else if (event.button) {
-            centerClick = (event.button == 2);           
-        }  
-
-        if(centerClick) {
-            $.EnterIN.showGrid();
+        if($.EnterIN.detectCenterClick(event)) {
+            event.preventDefault();
+            if($.EnterIN.inGrid) {
+                $.EnterIN.hideGrid();
+            }
+            else {
+                $.EnterIN.showGrid();
+            }
         }
 
     });
@@ -239,7 +256,7 @@ $.EnterIN.bindKeyAndMouseEvents =  function(){
 
     });
 
-    $.jQuery("body").keydown(function (event) {
+    $.jQuery("body").keyup(function (event) {
 
         if($.EnterIN.kmTime && (event.timeStamp-$.EnterIN.kmTime) < 300 ){
             return;
@@ -275,10 +292,14 @@ $.EnterIN.bindKeyAndMouseEvents =  function(){
             break;   
             case letters.g:
                 event.preventDefault();
-                if(!$.EnterIN.inGrid)
+                if(!$.EnterIN.inGrid){
                     $.EnterIN.showGrid();
-                else
+                }
+                else {
                     $.EnterIN.hideGrid();
+                }
+                $.log($.EnterIN.inGrid);
+                    
             break;                     
         }
 
@@ -299,8 +320,6 @@ $.EnterIN.keyFire = function(){
     }
 
     $.EnterIN.changeSlide($.EnterIN.to);
-
-
 
 };
 
@@ -368,10 +387,6 @@ $.EnterIN.changeActive = function(){
 
 $.EnterIN.changeSlide = function(to){
     
-    if($.EnterIN.inGrid){
-        $.EnterIN.hideGrid();
-    }
-    
     $.EnterIN.slides.each(function(i, val){
 
         var a = (1/$.EnterIN.count)*(i+1);
@@ -418,12 +433,12 @@ $.EnterIN.goToSlide = function(slideIndex, scaleOverride){
 };
 
 $.EnterIN.showGrid = function(){
-    $.EnterIN.inGrid = true;
-    $.EnterIN.changeSlide(1);
     $.EnterIN.wrapper.addClass('show-grid');
+    $.EnterIN.changeSlide(1);
     if($.EnterIN.isMobile){
         $.EnterIN.wrapper.swipe("disable");
     }
+    $.EnterIN.inGrid = true;
 };
 
 $.EnterIN.hideGrid = function(){
