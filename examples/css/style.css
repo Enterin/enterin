@@ -34,11 +34,8 @@ a {
 	color:#00B3FF;
 	text-decoration: none;
 }
-h1,h2, h3, h5 {
+h1,h2, h5 {
 	font-family: 'Raleway', 'Open Sans','Droid Sans',arial,sans-serif;
-}
-h3 {
-	margin-bottom:15px!important;
 }
 h1,h2,h3,h4,h5,p {
 	margin: 0px;
@@ -53,13 +50,13 @@ header {
 }
 
 #wrapper {
-	width: 77%;
+	width: 1280px;
 	margin: 2% auto;
 	line-height: 33px;
 	margin-top:50px;
 }
 #wrapper h1 {
-	font-size: 84px;
+	font-size: 64px;
 	margin-left: -3px;
 	display: inline-block;
 }
@@ -231,4 +228,59 @@ ul li:before {
 
 .raw b *{
 	color:lightgreen!important;
+}
+
+#wrapper {
+	width: 1280px;
+}
+
+#examples {
+	width: 1280px;
+	text-align: center;
+}
+
+#examples a{
+	display: inline-block;
+	width:300px;
+	margin:20px 100px;
+	padding:20px;
+	background:white;
+	border:1px solid #CCCCCC;
+	-webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	-ms-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+	opacity: 0.89;
+	line-height: auto;
+	overflow: hidden;
+	position: relative
+}
+
+#examples a:hover {
+	opacity: 1;
+}
+
+#examples a img {
+	width: 100%;
+}
+
+#examples a span {
+	display: block;
+	width: 100%;
+	padding:5px;
+	position: absolute;
+	bottom: -50px;
+	left: 0px;
+	background: rgba(0,0,0,0.8);
+	color:white;
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-ms-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+
+#examples a:hover span {
+	bottom:0px;
 }

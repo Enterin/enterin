@@ -3,19 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>EnterIN.JS | Documentation</title>
+	<title>enterin.js | doc</title>
 	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 	<link rel="stylesheet" href="css/pretty.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div id="wrapper">
-		<h1>EnterIN.JS</h1>
-		<h2>Documentation</h2>
+		<h1><a href="http://www.enterinjs.com/">enterin.js</a></h1>
+		<h2>doc</h2>
 
-		<h3>Installazione</h3>
-		<p>Scaricare e caricare EnterIN.JS nella root del proprio sito web.</p>
-		<p>La struttura delle cartelle dovrebbe essere questa:</p>
+		<h3>Setup</h3>
+		<p>Download enterin.js and upload it to the root of your website.</p>
+		<p>The folder structure should be like this:</p>
 
 <pre class="prettyprint folders">
 	<div>index.html</div>
@@ -68,22 +68,22 @@
 		<li class="legal">COPYRIGHT.txt</li>
 		<li class="legal">LICENSE.txt</li>
 	</ul>
-	<div class="ok">* File modificabili</div>
-	<div class="ko">* File non modificabili ( in caso di mofiche attenersi alla licenza )</div>
+	<div class="ok">* Editable files</div>
+	<div class="ko">* Not editable files ( In case of edits keep in mind the terms of the license )</div>
 	<div class="legal">* Legal Notices</div>
 </pre>
 
-<h3>Includiamo EnterIN.JS nella nostra pagina web</h3>
-<p>Per includere EnterIN.JS nella nostra pagina web abbiamo bisogno di 2 righe di codice:</p>
+<h3>Include enterin.js in your web page</h3>
+<p>To do that you only need 2 lines of code:</p>
 <pre class="prettyprint">
 &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;script rel=&quot;js/enterin&quot; src=&quot;enterin/enterin.js&quot;&gt;&lt;/script&gt;
 
 
-<div class="ko">* EnterIN.JS va incluso nella root del sito e va richiamato con "enterin/enterin.js"</div>
+<div class="ko">* enterin.js has to be included in the root of your website and it has to be called as follows:"enterin/enterin.js"</div>
 </pre>
 
-<p>Includere jQuery e EnterIN.JS all'interno del tag &lt;head&gt;:</p>
+<p>Include jQuery and enterin.js inside &lt;head&gt; tags:</p>
 <pre class="prettyprint">
 &lt;!DOCTYPE html&gt;
 	&lt;html&gt;
@@ -98,9 +98,9 @@
 	...
 </pre>
 
-<h3>Facciamolo funzionare!</h3>
-<p>Una volta averlo incluso nella nostra pagina web, EnterIN.JS è pronto essere richiamato!</p>
-<p>Vediamo insieme le classi e gli attributi per far funzionare EnterIN.JS correttamente.</p>
+<h3>Get it to work!</h3>
+<p>Once you include enterin.js in your webpage, it's ready to be used!</p>
+<p>Let's see the classes and the attributes to get enterIN work properly:</p>
 <pre class="prettyprint">
 &lt;section data-enterin=&quot;true&quot; data-enterin-type=&quot;page&quot;&gt;
 	&lt;figure class=&quot;enterin-slide&quot; data-enterin-to=&quot;1&quot;&gt;&lt;img src=&quot;shape1.png&quot; alt=&quot;&quot;&gt;&lt;/figure&gt;
@@ -110,35 +110,34 @@
 	&lt;figure class=&quot;enterin-slide&quot; data-enterin-to=&quot;5&quot;&gt;&lt;img src=&quot;shape2.png&quot; alt=&quot;&quot;&gt;&lt;/figure&gt;
 &lt;/section&gt;	
 </pre>
-<p>Spieghiamo adesso il markup html5 di cui ha bisogno EnterIN.JS:</p>
+<p>Here i'll explain the needed html5 markup:</p>
 <pre class="prettyprint raw">
 <b>data-enterin="true"</b>		(required)
 
-Tale attributo comunica ad EnterIN.JS che l'elemento &lt;div&gt; o &lt;section&gt; contengono le istruzioni necessarie 
-per far girare EnterIN.JS
+This attribute tells enterin.js that the elements &lt;div&gt; or &lt;section&gt; contain the necessary instructions to let it work properly.
 </pre>
 <pre class="prettyprint raw">
 <b>class=".enterin-slide"</b>		(required)
 
-Tutti gli elementi/slide/pagine/immagini all'interno del tag &lt;div&gt; o &lt;section&gt; con attributo <strong>data-enterin="true"</strong>
+All the: elements/slides/pages/images inside of &lt;div&gt; or &lt;section&gt; tags with the <strong>data-enterin="true"</strong> attribute
 </pre>
 <pre class="prettyprint raw">
 <b>data-enterin-to="#"</b>	(optional)
 
-Tale attributo determina la posizione # della slide e nel caso viene cliccata o tappata, mostra la slide #.
+This attribute defines the # position of the slide. if it's clicked or tapped, it shows the # slide.
 </pre>
 <pre class="prettyprint raw">
 <b>data-enterin-type="page"</b>	(optional)
 
-Tale attributo determina se EnterIN.JS debba interpretare il markup come nativo o come pagina.
+This attribute defines if enterin.js has to interprete the markup as native or page.
 </pre>
-<h3>Configurazione</h3>
-<p>Una volta creato il nostro markup, non ci resta che configurare la velocità dell'animazione e lo stile della nostra applicazione web</p>
-<p>La prima cosa da fare è quindi aprire il file <strong>enterin/config.enterin.css</strong>:</p>
+<h3>Configuration</h3>
+<p>Once the markup has been built, you just need to set the speed of the animation and the style of your web application.</p>
+<p>To do so, you have to open the file <strong>enterin/config.enterin.css</strong>:</p>
 <pre class="prettyprint">
 /*
 *
-* 	Modifichiamo la velocità ed il tipo di effetto di EnterIN.JS
+* 	Edit the speed and the effect type of enterin.js 
 *
 * 	@enterin-effect-speed: 		CSS3 transition-time value
 *	@enterin-effect-ease: 		CSS3 transition-ease value
@@ -151,11 +150,11 @@ Tale attributo determina se EnterIN.JS debba interpretare il markup come nativo 
 
 /*
 *
-* 	Ora possiamo sovrascrivere una o più regole css senza toccare i file <b>core.enterin.css</b> e <b>style.enterin.css</b>
+* 	Now we can override one or more rules without editing the <b>core.enterin.css</b> and <b>style.enterin.css</b> files.
 *
-*	.enterin-body-css: 			css style per il tag body
-*	.enterin-wrapper-css: 			css style per element[data-enterin="true"]
-*	.enterin-slide-css: 			css style per element[data-enterin="true"] .enterin-slide
+*	.enterin-body-css: 				Body tag css style
+*	.enterin-wrapper-css: 			element[data-enterin="true"] css style
+*	.enterin-slide-css: 			element[data-enterin="true"] .enterin-slide css style
 *
 */
 
@@ -178,71 +177,76 @@ Tale attributo determina se EnterIN.JS debba interpretare il markup come nativo 
 	
 }
 </pre>
-<h3>Customizzazione</h3>
-<p>Terminata la parte di configurazione passiamo a quella di customizzazione!</p>
-<p>Per customizzare lo stile della nostra applicazione web abbiamo solamente bisogno di modificare il file <b>custom.enterin.css</b></p>
-<h3>Eventi</h3>
-<p>Vediamo adesso come gestire gli eventi di EnterIN.JS</p>
+<h3>Customization</h3>
+<p>Let's go ahead with the customization section!</p>
+<p>To customize the style of your web application you just need to edit the <b>custom.enterin.css</b> file.</p>
+<h3>Events</h3>
+<p>Let's see how to handle events with enterin.js</p>
 <h4>Mouse Enter:</h4>
 <pre class="prettyprint raw">
-Tale evento si attiva quando passiamo con il mouse su una slide assegnando a tale slide la classe <b>mouseenter</b>
+This event triggers when you hover over a slide that has the <b>mouseenter</b> class.
 
-Per intervenire sull'evento ed assegnarne lo stile possiamo quindi assegnare la seguente regola nel <b>custom.enterin.css</b>:
+To get the event and assign a style to it you can assign the following rule in the<b>custom.enterin.css</b> file:
 
 <b>element[data-enterin="true"] .enterin-slide.mouseenter</b> {
-	/* le nostre regole css */
+	/* your css rules */
 }
 
 </pre>
-<h4>EnterIN.JS Active:</h4>
+<h4>enterin.js Active:</h4>
 <pre class="prettyprint raw">
-Tale evento si attiva sulla slide corrente che stiamo visualizzando assegnando la classe <b>enterin-active</b>
+This event triggers on the current viewed slide by assigning the <b>enterin-active</b> rule.
 
-Per intervenire sull'evento ed assegnarne lo stile possiamo quindi assegnare la seguente regola nel <b>custom.enterin.css</b>:
+To get to the event and assign a style, you can use the following rule in the<b>custom.enterin.css</b> file:
 
 <b>element[data-enterin="true"] .enterin-slide.enterin-active</b> {
-	/* le nostre regole css */
+	/* your css rules */
 }
 </pre>
-<h3>Mouse, tastiera e... dita!</h3>
-<p>EnterIN.JS sfrutta anche eventi inizializzati dai click del mouse, lo scorrimento con la rotella del mouse, la pressione di un tasto della tastiera e la pressione del touch con le dita</p>
-<p>Vediamoli insieme:</p>
+<h3>Mouse, keyboard and... fingers!</h3>
+<p>enterin.js can handle, as well, events initialized by mouse clicks, mouse wheel, key pression and finger pression with a touch screen.</p>
+<p>Let's see them in the detail:</p>
 <pre class="prettyprint raw">
 MOUSE:
 
-	rotella giu:						+1 indice della slide corrente. Se siamo all'ultima slide ritorna alla 1.
-	rotella su: 						-1 indice della slide corrente. Se siamo alla prima slide va all'ultima.
-	tasto centrale del mouse: 				Attiva la modalità "griglia" per visualizzare tutte le slide in 2 colonne.
-	 							Premendolo nuovamente la disattiva
+	wheel down:					+1 to the current slide index. If it's on the last slide, it goes back to the first.
+	wheel up: 					-1 to the current slide index. If it's on the first slide, it goes back to the last.
+	middle button: 					Enables the "grid" mode, displaying all the slides in 2 columns.
+	 						Disable it by pressing again.
 
 
-TASTIERA:
+KEYBOARD:
 
-	freccia destra/giu:					+1 indice della slide corrente. Se siamo all'ultima slide ritorna alla 1.
-	freccia sinistra/su: 					-1 indice della slide corrente. Se siamo alla prima slide va all'ultima.
-	tasto G: 						Attiva la modalità "griglia" per visualizzare tutte le slide in 2 colonne.
-	 							Premendolo nuovamente la disattiva
+	right/down key:					+1 to the current slide index. If it's on the last slide, it goes back to the first.
+	left/up key: 					-1 to the current slide index. If it's on the first slide, it goes back to the last.
+	G key: 						Enables the "grid" mode, displaying all the slides in 2 columns.
+	 						Disable it by pressing again.
+
 
 TOUCH:
 
-	swipe sinistra:						+1 indice della slide corrente. Se siamo all'ultima slide ritorna alla 1.
-	swipe destra: 						-1 indice della slide corrente. Se siamo alla prima slide va all'ultima.
-	tap 2 dita: 						Attiva la modalità "griglia" per visualizzare tutte le slide in 2 colonne.
-	 							Ripetendo il gesto la disattiva
+	left swipe:					+1 to the current slide index. If it's on the last slide, it goes back to the first.
+	right swipe: 					-1 to the current slide index. If it's on the first slide, it goes back to the last.
+	2 fingers tap: 					Enables the "grid" mode, displaying all the slides in 2 columns.
+							Disable it by pressing again.
+
 </pre>
-<h3>Avanzate<br>Controlliamo EnterIN.JS</h3>
-<p>Vediamo ora come possiamo richiamare tali eventi assegnandoli ad elemento o una funzione esterna.</p>
-<p>Possiamo decidere di assegnare ad un elemento l'attributo data-enterin-to="#" per far si che al click ci si possa spostare all'indice desiderato.</p>
+<h3>Advanced<br>Taking control of enterin.js</h3>
+<p>Let's see how you can recall these events by assigning them to an element or an external function.</p>
+<p>You can choose to assign to an element the data-enterin-to="#" attribute to let the click be able to skip to the desired index.</p>
 <pre class="prettyprint">
-&lt;a href="#" data-enterin-to="10"&gt;CLICCAMI PER ANDARE ALLA SLIDE 10&lt;/a&gt;
+&lt;a href="#" data-enterin-to="10"&gt;CLICK ME TO GO TO THE 10&lt;/a&gt; SLIDE
 </pre>
-<p>L'equivalente dell'esempio sopra può essere sfruttato anche nel seguente modo mediante l'ausilio di Javascript:</p>
+<p>You can get to the same result by using javascript, as shown below:</p>
 <pre class="prettyprint">
 &lt;script&gt;  $.EnterIN.changeSlide(10); &lt;/script&gt;
 </pre>
-<footer>
-	EnterIN.JS | © 2013 Gianfilippo Balestriero
-</footer>
+    <footer>
+        &copy; 2014 <a target="_blank" href="http://facebook.com/gian.balex.nap">Gianfilippo Balestriero</a> licensed under the <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL3</a> license.
+        <br><br>
+        <a href="https://www.iubenda.com/privacy-policy/284502" class="iubenda-white iub-legal-only iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+
+    </footer>
 </div>
 </body>
 </html>

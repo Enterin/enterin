@@ -1,7 +1,7 @@
 /*
 * 
-* EnterIN JS | The new frontier of web development
-* Copyright (c) 2013 Gianfilippo Balestriero <enterin.github@gmail.com>
+* enterin.js
+* Copyright (c) 2014 Gianfilippo Balestriero <info@enterinjs.com>
 * 
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License as

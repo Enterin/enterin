@@ -1,7 +1,7 @@
 /*
 * 
-* EnterIN JS | The new frontier of web development
-* Copyright (c) 2013 Gianfilippo Balestriero <enterin.github@gmail.com>
+* enterin.js
+* Copyright (c) 2014 Gianfilippo Balestriero <info@enterinjs.com>
 * 
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Affero General Public License as
@@ -20,14 +20,14 @@
 
 /*
 * 
-* 	Your config file
+* 	your config file
 * 
 */
 @import (less) '../config.enterin.css';
 
 /*
 * 
-* 	EnterIN Core Style ( don't modify )
+* 	enterin.js core style ( don't modify )
 * 
 */
 @import (less) 'core.enterin.css';
@@ -35,7 +35,7 @@
 
 /*
 * 
-* 	Custom Css Rules ( don't modify )
+* 	custom css rules ( don't modify )
 * 
 */
 @import (less) '../custom.enterin.css';
